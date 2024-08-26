@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض النافذة المنبثقة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <style>
+        .modal.fade.popup {
+            top: -100%;
+            transform: translateY(0);
+            transition: top 0.3s ease-out;
+        }
+        .modal.fade.popup.show {
+            top: 0;
+        }
+        .modal.fade.slide-bottom {
+            top: 100%;
+            transform: translateY(0);
+            transition: top 0.3s ease-out;
+        }
+        .modal.fade.slide-bottom.show {
+            top: 0;
+        }
+        .modal.fade.slide-left {
+            right: -100%;
+            transform: translateX(0);
+            transition: right 0.3s ease-out;
+        }
+        .modal.fade.slide-left.show {
+            right: 0;
+        }
+        .modal.fade.slide-right {
+            left: -100%;
+            transform: translateX(0);
+            transition: left 0.3s ease-out;
+        }
+        .modal.fade.slide-right.show {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>عرض النافذة المنبثقة</h1>
+        <div class="mb-3">
+            <p class="form-label">اختر موضع النافذة المنبثقة:</p>
+            <div class="btn-group" role="group" aria-label="اختيار موضع النافذة المنبثقة">
+                <button type="button" class="btn btn-outline-primary" data-position="popup">منبثقة</button>
+                <button type="button" class="btn btn-outline-primary" data-position="slide-bottom">انزلاق من الأسفل</button>
+                <button type="button" class="btn btn-outline-primary" data-position="slide-left">انزلاق من اليسار</button>
+                <button type="button" class="btn btn-outline-primary" data-position="slide-right">انزلاق من اليمين</button>
+            </div>
+        </div>
+        <button id="showModal" class="btn btn-primary">عرض النافذة المنبثقة</button>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">عنوان النافذة المنبثقة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body">
+                    <p>هذا هو محتوى النافذة المنبثقة.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const positionButtons = document.querySelectorAll('.btn-group .btn');
+            const showModalButton = document.getElementById('showModal');
+            const myModal = document.getElementById('myModal');
+            const modal = new bootstrap.Modal(myModal);
+            let selectedPosition = 'popup'; // Default position
+
+            positionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    positionButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedPosition = this.getAttribute('data-position');
+                });
+            });
+
+            showModalButton.addEventListener('click', function() {
+                myModal.className = `modal fade ${selectedPosition}`;
+                modal.show();
+            });
+        });
+    </script>
+</body>
+</html>

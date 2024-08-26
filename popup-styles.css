@@ -1,0 +1,36 @@
+#pluginModal .coupon-container {
+    background-color: #f8f9fa;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#pluginModal .coupon-title {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#pluginModal .coupon-discount {
+    font-size: 1.2rem;
+}
+
+#pluginModal .coupon-code {
+    font-size: 1.1rem;
+}
+
+#pluginModal .coupon-expiry {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+#pluginModal .btn-copy-coupon {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+
+.rtl #pluginModal .coupon-container {
+    text-align: right;
+}

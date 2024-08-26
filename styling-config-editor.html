@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .color-input-container {
+            display: flex;
+            align-items: center;
+        }
+        .color-input-container input[type="color"] {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border: none;
+            
+            overflow: hidden;
+        }
+        .color-preview {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .color-value {
+            margin-left: 10px;
+            font-family: monospace;
+        }
+        .range-container {
+            display: flex;
+            align-items: center;
+        }
+        .range-container input[type="range"] {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .range-value {
+            font-family: monospace;
+            min-width: 60px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #007bff;
+        }
+        #output {
+            margin-top: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            white-space: pre-wrap;
+        }
+
+        #copyButton {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #copyButton:hover {
+            background-color: #0056b3;
+        }
+        .output-container {
+            position: relative;
+        }
+        #copySuccess {
+            display: none;
+            color: green;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Styling</h1>
+        <form id="configForm">
+
+            
+            <label for="mainFrameColor">Main Frame Color:</label>
+            <div class="color-input-container">
+                <input type="color" id="mainFrameColor" name="mainFrameColor" value="#ff00ee" onchange="updateColorPreview(this)">
+    
+
+            </div>
+            
+            <label for="mainColor">Main Color:</label>
+            <div class="color-input-container">
+                <input type="color" id="mainColor" name="mainColor" value="#000000" onchange="updateColorPreview(this)">
+             
+
+            </div>
+            
+            <label for="subColor">Sub Color:</label>
+            <div class="color-input-container">
+                <input type="color" id="subColor" name="subColor" value="#333333" onchange="updateColorPreview(this)">
+   
+
+            </div>
+            
+            <label for="borderRadius">Border Radius:</label>
+            <div class="range-container">
+                <input type="range" id="borderRadius" name="borderRadius" min="0" max="20" value="4" onchange="updateRangeValue(this)">
+                <span class="range-value" id="borderRadiusValue">4px</span>
+            </div>
+
+            <label for="buttonShape">Button Shape:</label>
+            <select id="buttonShape" name="buttonShape">
+                <option value="fill">Fill</option>
+                <option value="outline">Outline</option>
+            </select>
+            
+            <button type="button" onclick="generateConfig()">Generate Configuration</button>
+        </form>
+        
+        <div class="output-container">
+            <pre id="output"></pre>
+            <button id="copyButton" onclick="copyToClipboard()">Copy Code</button>
+            <span id="copySuccess">Code copied to clipboard!</span>
+        </div>
+
+    </div>
+
+    <script>
+        function updateColorPreview(input) {
+            const previewId = input.id + 'Preview';
+            const valueId = input.id + 'Value';
+            document.getElementById(previewId).style.backgroundColor = input.value;
+            document.getElementById(valueId).textContent = input.value;
+        }
+
+        function updateRangeValue(input) {
+            const valueId = input.id + 'Value';
+            document.getElementById(valueId).textContent = input.value + 'px';
+        }
+
+        function initColorPreviews() {
+            const colorInputs = document.querySelectorAll('input[type="color"]');
+            colorInputs.forEach(input => updateColorPreview(input));
+        }
+
+        function generateConfig() {
+            const config = {
+                mainFrameColor: document.getElementById('mainFrameColor').value,
+                mainColor: document.getElementById('mainColor').value,
+                subColor: document.getElementById('subColor').value,
+                borderRadius: document.getElementById('borderRadius').value + 'px',
+                buttonShape: document.getElementById('buttonShape').value,
+            };
+
+            const configCode = `${JSON.stringify(config, null, 2)}`;
+
+            document.getElementById('output').textContent = configCode;
+            document.getElementById('copyButton').style.display = 'inline-block';
+        }
+
+        function copyToClipboard() {
+            const outputText = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(outputText).then(function() {
+                const copySuccess = document.getElementById('copySuccess');
+                copySuccess.style.display = 'inline';
+                setTimeout(() => {
+                    copySuccess.style.display = 'none';
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        window.onload = function() {
+            initColorPreviews();
+            updateRangeValue(document.getElementById('borderRadius'));
+            document.getElementById('copyButton').style.display = 'none';
+        };
+    </script>
+</body>
+</html>

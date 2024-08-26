@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Options Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+    </style>
+</head>
+<body>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossOneProductCouponPopup">Popup</button>
+</div>
+
+
+
+
+
+    <div class="modal fade modal-draggable" id="modalDesktopCrossOneProductCouponPopup" tabindex="-1" aria-labelledby="modalDesktopCrossOneProductCouponPopupLabel" aria-hidden="true" dir="rtl" lang="ar">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-2 pt-3 pb-4" style="width: inherit !important">
+                <div class="modal-drag-area"></div>
+                <div class="modal-header pb-1">
+                    <h5 class="modal-title fw-bold" id="modalDesktopCrossOneProductCouponPopupLabel">أكمل المجموعة !</h5>
+                    <button type="button" class="btn-close ms-2 me-auto text-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="description mb-0" style="border:0">احصل على تجربة استثنائية بإكمال المجموعة المتكاملة الفريدة</p>
+                   
+                    <div class="card rounded-4 px-3 py-2 mt-0 small" style="border:1px solid #ece8e8 !important">
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="d-flex flex-row text-center align-items-end">
+                                <div style="font-size: 2.3rem; font-weight: light;">30</div>
+                                <small>ر.س</small>
+                            </div>
+
+                            <div class="d-flex flex-column text-end">
+                                <div><i class="bi bi-check-circle text-secondary"></i> شحن مجاني</div>
+                                <div><i class="bi bi-check-circle text-secondary"></i> دفع عند الاستلام مجاني</div>
+                            </div>
+
+                                  
+                    <div class="d-grid justify-content-between align-items-center gap-2">
+                        <div id="couponContainer" class="badge bg-dark bg-opacity-10 text-dark p-2 rounded-pill w-100">
+                            <i id="copyIcon" class="bi bi-clipboard text-dark mx-2" style="cursor: pointer;" title="Copy" onclick="copyCouponCode()"></i>
+                            <span id="couponCode">Z-1Z1A2A</span>
+                        </div>
+                        <span class="text-muted w-100 d-block small">صالح حتى: 2025/05/03</span>
+                    </div>
+          
+                        </div>
+                    </div>
+              
+
+                    <hr style="border-color: #b4aeae;" />
+
+
+                    
+                        <!-- all items -->
+                        <div class="d-flex justify-content-around gap-1 row">
+                            <!-- item 01 -->
+                            <div class="item col">
+                                <div class="image-container my-2">
+                                    <img src="https://media.zid.store/e4aadd21-62d3-4ecb-b286-5cfefed6d23c/4274c9f8-4895-49e3-96eb-87500b9da405.jpg" alt="كوب سيراميك" class="product-image">
+                                </div>
+                                <p class="product-title text-end fw-light mb-0 mt-0 fs-6">كوب سيراميك</p>
+                                <p class="product-price text-end fw-light">14 <small class="fw-light fs-6">ر.س</small></p>
+                                
+                 
+
+                                <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm">
+
+                                    <span> أضف للسلة</span>
+                                    <i class="bi bi-plus    
+                                    fs-5 align-middle fs-6"></i>
+
+                                </button>
+                            </div>
+                             <!-- item 01 -->
+
+                            <!-- item 01 -->
+                            <div class="item col">
+                                <div class="image-container my-2">
+                                    <img src="https://media.zid.store/thumbs/c6e9b54f-60d1-4d10-9349-3edac4ac130d/b810c0e9-27ab-49f4-b78c-2dc8e295d366-thumbnail-770x770.png" alt="كوب سيراميك" class="product-image">
+                                </div>
+                                <p class="product-title text-end fw-light mb-0 mt-0 fs-6">كوب سيراميك</p>
+                                <p class="product-price text-end fw-light text-danger">14 <span class="fw-light fs-6">د.ك</span>
+                                
+                                  <sup class="text-danger text-decoration-line-through text-dark" style="font-size: x-small;">10 ريال</sup>
+                                </p>
+                
+                                <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm">
+
+                                    <span> أضف للسلة</span>
+                                    <i class="bi bi-plus    
+                                    fs-5 align-middle fs-6"></i>
+
+                                </button>
+                            </div>
+                             <!-- item 01 -->
+                            <!-- item 01 -->
+                            <div class="item col">
+                                <div class="image-container my-2">
+                                    <img src="https://media.zid.store/thumbs/b5f1b84b-9394-49d2-8ee8-c93bc24c9a28/93089af4-76dd-41b4-b776-1f82a5be9632-thumbnail-770x770-70.jpg" alt="كوب سيراميك" class="product-image">
+                                </div>
+                                <p class="product-title text-end fw-light mb-0 mt-0 fs-6">كوب سيراميك</p>
+                                <p class="product-price text-end fw-light">14 <small class="fw-light fs-6">ر.س</small></p>
+                                
+             
+                                <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm">
+
+                                    <span> أضف للسلة</span>
+                                    <i class="bi bi-plus    
+                                    fs-5 align-middle fs-6"></i>
+
+                                </button>
+                            </div>
+                             <!-- item 01 -->
+                            <!-- item 01 -->
+                            <div class="item col">
+                                <div class="image-container my-2">
+                                    <img src="https://media.zid.store/thumbs/e4aadd21-62d3-4ecb-b286-5cfefed6d23c/234dc70d-fd4b-4d65-bbe3-c6ec1a7b0fd9-thumbnail-500x500-70.jpg" alt="كوب سيراميك" class="product-image">
+                                </div>
+                                <p class="product-title text-end fw-light mb-0 mt-0 fs-6">كوب سيراميك</p>
+                                <p class="product-price text-end fw-light">14 <small class="fw-light fs-6">ر.س</small></p>
+                                
+                 
+                                <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm" onclick="toggleOptions(this)">
+                                    <span>الخيارات</span>
+                                    <i class="bi bi-chevron-down fs-5 align-middle fs-6"></i>
+                                </button>
+
+                                
+                                <div class="options-dropdown small px-3 py-2 border-0">
+                                    <h6 class="mb-3">حدد الخيارات:</h6>
+                                    <div class="options-content">
+                                    <div class="accordion accordion-flush" id="optionsAccordion">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed p-1 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                                    الحجم
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#optionsAccordion">
+                                                <div class="accordion-body px-0">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="size1">
+                                                        <label class="form-check-label" for="size1">صغير</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="size2">
+                                                        <label class="form-check-label" for="size2">متوسط</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="size3">
+                                                        <label class="form-check-label" for="size3">كبير</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed p-1 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                                    اللون
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#optionsAccordion">
+                                                <div class="accordion-body px-0">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="color" id="color1">
+                                                        <label class="form-check-label" for="color1">أحمر</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="color" id="color2">
+                                                        <label class="form-check-label" for="color2">أزرق</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="color" id="color3">
+                                                        <label class="form-check-label" for="color3">أخضر</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                   
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed p-1 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSize">
+                                                    القياس
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSize" class="accordion-collapse collapse" data-bs-parent="#optionsAccordion">
+                                                <div class="accordion-body px-0 mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="sizeSmall">
+                                                        <label class="form-check-label" for="sizeSmall">صغير</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="sizeMedium">
+                                                        <label class="form-check-label" for="sizeMedium">متوسط</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="size" id="sizeLarge">
+                                                        <label class="form-check-label" for="sizeLarge">كبير</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                    
+                                    <div class="options-footer mt-3 position-absolute bottom-0 end-0 w-100 px-3">
+                                        <button class="btn continue-shopping btn-sm w-100 d-flex px-3 justify-content-between align-items-center" onclick="closeOptions(this)">
+                                           
+                                            <span>حفظ</span>
+                                            <i class="bi bi-check fs-6 align-middle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                             <!-- item 01 -->
+                        </div>
+                        
+
+               <div class="mt-3 d-flex justify-content-between align-items-center gap-3 px-3">
+                    <button class="btn add-to-cart d-flex justify-content-between px-3 align-items-center btn-sm">
+                        <span>أضف الكل</span>
+                        <i class="bi bi-cart    
+                        fs-5 align-middle"></i>
+                    </button>
+                    <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm" data-bs-dismiss="modal">
+                        <span>أكمل التسوق</span>
+                        <i class="bi bi-arrow-left fs-5 align-middle"></i>
+                    </button>
+
+
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="styles.js"></script>
+
+    <script src="tables.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>

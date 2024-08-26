@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Options Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+        .table-responsive {
+            max-height: 80vh;
+        }
+        .nested-table {
+            width: 100%;
+        }
+        .nested-table td {
+            padding: 0.25rem;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+        }
+        .btn-style {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
+        }
+        .modal-content {
+            border-radius: 20px;
+            border: 0 !important;
+        }
+        .modal-header {
+            border-bottom: none;
+        }
+        .modal-body {
+            padding: 0 1rem;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+        .product-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        .product-price {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .quantity-control-large {
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            margin-bottom: 1rem;
+        }
+
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+        .quantity-control input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 1.2rem;
+        }
+        .add-to-cart {
+            width: 100%;
+      
+            font-size: .9rem;
+            border-radius: 20px;
+            border: 1px solid #094892;
+        }
+        .add-to-cart:hover {
+            background-color: #fff;
+            color: #000;
+            border:1px solid #000
+        }
+
+        .continue-shopping {
+            width: 100%;
+  
+            font-size: .9rem;
+            background-color: transparent;
+            border: none;
+            color: #094892;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 1px solid #094892;
+        }
+        .continue-shopping:hover {
+            text-decoration: none;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .btn-close {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .quantity-control button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th class="align-middle" rowspan="2"></th>
+                        <th colspan="2">Desktop</th>
+           
+                    </tr>
+                    <tr>
+                        <th>Cross-sell</th>
+                        <th>Upsell</th>
+      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Actions</td>
+                        <td>
+                            <table class="nested-table">
+                                <tr>
+                                    <td><span class="badge bg-primary">One product</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossOneProductPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-success">One product + coupon</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossOneProductCouponPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">> 1 product</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossMultiProductPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-warning text-dark">> 1 product + coupon</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossMultiProductCouponPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-danger">Only coupon</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopCrossOnlyCouponPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="nested-table">
+                                <tr>
+                                    <td><span class="badge bg-primary">One product</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopUpOneProductPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-success">One product + coupon</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopUpOneProductCouponPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">> 1 product</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopUpMultiProductPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-warning text-dark">> 1 product + coupon</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-outline-dark btn-style" data-bs-toggle="modal" data-bs-target="#modalDesktopUpMultiProductCouponPopup">Popup</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+          
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <div class="modal fade" id="modalDesktopCrossOneProductPopup" tabindex="-1" aria-labelledby="modalDesktopCrossOneProductPopupLabel" aria-hidden="true" dir="rtl" lang="ar">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-2 pt-3 pb-4">
+                <div class="modal-header">
+
+                    <h5 class="modal-title fw-bold" id="modalDesktopCrossOneProductPopupLabel">أكمل المجموعة !</h5>
+                    <button type="button" class="btn-close ms-2 me-auto text-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="description">احصل على تجربة استثنائية بإكمال المجموعة المتكاملة الفريدة</p>
+                    <div class="image-container">
+                        <img src="products/01.png" alt="كوب سيراميك" class="product-image">
+                    </div>
+                    <p class="product-title text-center fw-light mb-0">كوب سيراميك</p>
+                    <p class="product-price text-center fw-light">14 <small class="fw-light fs-6">ريال</small></p>
+                    <div class="quantity-control">
+                        <button class="btn btn-outline-dark" id="decrementBtn" onclick="decrementQuantity()">-</button>
+                        <input type="text" id="quantity" value="1" readonly>
+                        <button class="btn btn-outline-dark" onclick="incrementQuantity()">+</button>
+                    </div>
+                    <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm">
+                        <span>أضف للسلة</span>
+                        <i class="bi bi-cart fs-5 align-middle"></i>
+                    </button>
+                    <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm" data-bs-dismiss="modal">
+                        <span>أكمل التسوق</span>
+                        <i class="bi bi-arrow-left fs-5 align-middle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDesktopCrossOneProductCouponPopup" tabindex="-1" aria-labelledby="modalDesktopCrossOneProductCouponPopupLabel" aria-hidden="true" dir="rtl" lang="ar">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-2 pt-3 pb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalDesktopCrossOneProductCouponPopupLabel">أكمل المجموعة !</h5>
+                    <button type="button" class="btn-close ms-2 me-auto text-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="description mb-0" style="border:0">احصل على تجربة استثنائية بإكمال المجموعة المتكاملة الفريدة</p>
+                   
+                    <div class="card rounded-4 px-3 py-2 mt-0 small">
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="d-flex flex-row text-center align-items-end">
+                                <div style="font-size: 2.3rem; font-weight: light;">30</div>
+                                <small>ر.س</small>
+                            </div>
+
+                            <div class="d-flex flex-column text-end">
+                                <div><i class="bi bi-check-circle text-secondary"></i> شحن مجاني</div>
+                                <div><i class="bi bi-check-circle text-secondary"></i> دفع عند الاستلام مجاني</div>
+                            </div>
+          
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-2 gap-3">
+                        <div class="badge bg-dark bg-opacity-10 text-dark p-2 rounded-pill w-100">
+                      
+                            <i class="bi bi-clipboard text-dark mx-2" style="cursor: pointer;" title="Copy" onclick="copyCouponCode(document.getElementById('couponCode').textContent.trim())"></i>
+                            <span id="couponCode">Z-1Z1A2A</span>
+                        </div>
+                        <span class="text-muted w-100 d-block small">صالح حتى: 2025/05/03</span>
+                    </div>
+
+
+                    <div class="image-container mt-2">
+                        <img src="products/01.png" alt="كوب سيراميك" class="product-image">
+                    </div>
+                    <p class="product-title text-center fw-light mb-0">كوب سيراميك</p>
+                    <p class="product-price text-center fw-light">14 <small class="fw-light fs-6">ر.س</small></p>
+                    
+     
+                    
+                    
+                    
+                    <div class="quantity-control mt-3">
+                        <button class="btn btn-outline-dark" id="decrementBtnCoupon" onclick="decrementQuantityCoupon()">-</button>
+                        <input type="text" id="quantityCoupon" value="1" readonly>
+                        <button class="btn btn-outline-dark" onclick="incrementQuantityCoupon()">+</button>
+                    </div>
+                    <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm">
+                        <span>أضف للسلة</span>
+                        <i class="bi bi-cart fs-5 align-middle"></i>
+                    </button>
+                    <button class="btn continue-shopping d-flex justify-content-between px-3 align-items-center btn-sm" data-bs-dismiss="modal">
+                        <span>أكمل التسوق</span>
+                        <i class="bi bi-arrow-left fs-5 align-middle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- modal 3-->
+    <div class="modal fade unique-modal-class" id="modalDesktopCrossMultiProductPopup" tabindex="-1" aria-labelledby="modalDesktopCrossMultiProductPopupLabel" aria-hidden="true" dir="rtl" lang="ar">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-2 pt-3 pb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalDesktopCrossMultiProductPopupLabel">أكمل المجموعة !</h5>
+                    <button type="button" class="btn-close ms-2 me-auto text-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="description">احصل على تجربة استثنائية بإكمال المجموعة المتكاملة الفريدة</p>
+                    <div class="d-flex justify-content-around text-end gap-4">
+                        <!-- Product 1 -->
+                        <div class="product-item">
+                            <div class="image-container mb-2">
+                                <img src="products/02.png" alt="منتج 1" class="product-image">
+                            </div>
+                            <p class="product-title fw-light mb-0 fs-6">كوب سيراميك</p>
+                            <p class="product-price fw-light">14 <small class="fw-light fs-6">ر.س</small></p>
+
+                                      
+                            <div class="quantity-control mt-3" style="justify-content: start !important">
+                        <button class="btn btn-sm btn-outline-dark" id="decrementBtnCoupon" onclick="decrementQuantityCoupon()">-</button>
+                        <input type="text" id="quantityCoupon" value="1" readonly>
+                        <button class="btn btn-sm btn-outline-dark" onclick="incrementQuantityCoupon()">+</button>
+                    </div>
+                            <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm">
+                                <span>أضف للسلة</span>
+                                <i class="bi bi-cart fs-5 align-middle"></i>
+                            </button>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="product-item">
+                            <div class="image-container mb-2">
+                                <img src="products/02.png" alt="منتج 2" class="product-image">
+                            </div>
+                            <p class="product-title fw-light mb-0 fs-6">دفتر ملاحظات</p>
+                            <p class="product-price fw-light">
+                                <span class="text-decoration-line-through d-inline-block x-small" style="font-size: small;">43 <span class="fw-light fs-6">ر.س</span> </span> 
+                                
+                               
+                               
+                                <span class="text-danger">
+                                20 <small class="fw-light fs-6">ر.س</small>
+                            </span>
+
+                            </p>
+                                      
+                            <div class="quantity-control mt-3" style="justify-content: start !important">
+                        <button class="btn btn-sm btn-outline-dark" id="decrementBtnCoupon" onclick="decrementQuantityCoupon()">-</button>
+                        <input type="text" id="quantityCoupon" value="1" readonly>
+                        <button class="btn btn-sm btn-outline-dark" onclick="incrementQuantityCoupon()">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm">
+                                <span>أضف للسلة</span>
+                                <i class="bi bi-cart fs-5 align-middle"></i>
+                            </button>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="product-item">
+                            <div class="image-container mb-2">
+                                <img src="products/02.png" alt="منتج 3" class="product-image">
+                            </div>
+                            <p class="product-title fw-light mb-0 fs-6">قلم حبر</p>
+                            <p class="product-price fw-light">33 <small class="fw-light fs-6">ر.س</small></p>
+                                      
+                            <div class="quantity-control mt-3" style="justify-content: start !important">
+                        <button class="btn btn-sm btn-outline-dark" id="decrementBtnCoupon" onclick="decrementQuantityCoupon()">-</button>
+                        <input type="text" id="quantityCoupon" value="1" readonly>
+                        <button class="btn btn-sm btn-outline-dark" onclick="incrementQuantityCoupon()">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm">
+                                <span>أضف للسلة</span>
+                                <i class="bi bi-cart fs-5 align-middle"></i>
+                            </button>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="product-item">
+                            <div class="image-container mb-2">
+                                <img src="products/02.png" alt="منتج 4" class="product-image">
+                            </div>
+                            <p class="product-title fw-light mb-0 fs-6">مصباح مكتبي</p>
+                            <p class="product-price fw-light">20 <small class="fw-light fs-6">ر.س</small></p>
+                                      
+                            <div class="dropdown w-100 mb-2">
+                                <button class="btn add-to-cart d-flex justify-content-between px-3 align-items-center btn-sm w-100 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <span>الخيارات</span>
+                                  <i class="bi bi-chevron-down fs-5 align-middle" id="dropdownChevron"></i>
+                                </button>
+                                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                                  <div class="scrollable-container" style="max-height: 300px; overflow-y: auto;">
+                                    <div class="accordion mt-2" id="attributeAccordion">
+                                        <div class="accordion-item border-0">
+                                          <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                                              القياس
+                                      
+                                            </button>
+                                          </h2>
+                                          <div id="collapse0" class="accordion-collapse collapse" data-bs-parent="#attributeAccordion">
+                                            <div class="accordion-body border-0 small">
+                                              <div id="filter-container">
+                                                <div class="filter-row  ">
+                                                  <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="attribute_values[]" id="f7ea3028-e921-4b6f-8ca8-2ca7b3a97a97" value="S" autocomplete="off">
+                                                    <label class="form-check-label attribute-label" data-attribute-id="0" for="f7ea3028-e921-4b6f-8ca8-2ca7b3a97a97">
+                                                      <div class="attribute-label-extra d-inline-block">
+                                                        S
+                                                      </div>
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="filter-row  ">
+                                                  <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="attribute_values[]" id="aad66774-bb30-4f28-9371-716da8e8e795" value="XL" autocomplete="off">
+                                                    <label class="form-check-label attribute-label" data-attribute-id="0" for="aad66774-bb30-4f28-9371-716da8e8e795">
+                                                      <div class="attribute-label-extra d-inline-block">
+                                                        XL
+                                                      </div>
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="filter-row  ">
+                                                  <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="attribute_values[]" id="898ef413-f0b9-4b63-ab61-dc45eb2bab17" value="M" autocomplete="off">
+                                                    <label class="form-check-label attribute-label" data-attribute-id="0" for="898ef413-f0b9-4b63-ab61-dc45eb2bab17">
+                                                      <div class="attribute-label-extra d-inline-block">
+                                                        M
+                                                      </div>
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="filter-row  ">
+                                                  <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="attribute_values[]" id="06b54b5b-d26b-48cf-9412-a3cde30370e3" value="XXL" autocomplete="off">
+                                                    <label class="form-check-label attribute-label" data-attribute-id="0" for="06b54b5b-d26b-48cf-9412-a3cde30370e3">
+                                                      <div class="attribute-label-extra d-inline-block">
+                                                        XXL
+                                                      </div>
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <button type="button" class="mt-2 btn btn-sm btn-link link-dark text-decoration-none px-0  d-none" data-attribute-id="0">
+                                                <i class="ti ti-plus align-middle fs-6" aria-hidden="true"></i>
+                                                <span class="px-0">
+                                                  عرض المزيد
+                                                </span>
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- Repeat similar structure for other accordion items (اللون, الشركة, الصورة) -->
+                                        <!-- ... -->
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var dropdownButton = document.getElementById('dropdownMenuButton');
+                                    var dropdownMenu = document.getElementById('optionsDropdownMenu');
+                                    var chevronIcon = document.getElementById('dropdownChevron');
+                                  
+                                    // Toggle chevron icon
+                                    dropdownButton.addEventListener('show.bs.dropdown', function () {
+                                      chevronIcon.classList.remove('bi-chevron-down');
+                                      chevronIcon.classList.add('bi-chevron-up');
+                                    });
+                                  
+                                    dropdownButton.addEventListener('hide.bs.dropdown', function () {
+                                      chevronIcon.classList.remove('bi-chevron-up');
+                                      chevronIcon.classList.add('bi-chevron-down');
+                                    });
+                                  
+                                    // Prevent dropdown from closing when clicking inside
+                                    dropdownMenu.addEventListener('click', function (event) {
+                                      event.stopPropagation();
+                                    });
+                                  
+                                    // Close dropdown when clicking outside
+                                    document.addEventListener('click', function (event) {
+                                      var isClickInside = dropdownButton.contains(event.target) || dropdownMenu.contains(event.target);
+                                      if (!isClickInside) {
+                                        var dropdownInstance = bootstrap.Dropdown.getInstance(dropdownButton);
+                                        if (dropdownInstance) {
+                                          dropdownInstance.hide();
+                                        }
+                                      }
+                                    });
+                                  });
+                              </script>
+                    
+                    <button class="btn add-to-cart mb-2 d-flex justify-content-between px-3 align-items-center btn-sm" disabled>
+                                <span>أضف للسلة</span>
+                                <i class="bi bi-cart fs-5 align-middle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between gap-3 border-0">
+                    <div class="d-flex w-100">
+                        <button class="btn add-to-cart btn-lg d-flex justify-content-between align-items-center ms-2 flex-grow-1">
+                            <span>أضف الكل </span>
+                            <i class="bi bi-cart fs-5 align-middle"></i>
+                        </button>
+                        <button class="btn continue-shopping btn-lg d-flex justify-content-between align-items-center flex-grow-1" data-bs-dismiss="modal">
+                            <span>أكمل التسوق</span>
+                            <i class="bi bi-arrow-left fs-5 align-middle"></i>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+    
+        .modal-content {
+            border: none;
+            border-radius: 20px;
+            width:380px;
+            margin: auto;
+        }
+        .modal-header {
+            border-bottom: none;
+            padding-left: 0;
+        }
+        .modal-title, .description {
+            color: #094892;
+        }
+        .description {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 15px;
+        }
+        .btn-close {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        .add-to-cart {
+            background-color: #094892;
+            color: white;
+        }
+        .continue-shopping {
+            background-color: white;
+            color: #094892;
+       
+        }
+        .image-container {
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 200px; 
+        }
+        .product-image {
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover .product-image {
+            transform: scale(1.1);
+        }
+        .add-to-cart, .continue-shopping {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .add-to-cart::before, .continue-shopping::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .add-to-cart {
+            background-color: #094892;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .add-to-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: buttonGlow 3s infinite linear;
+        }
+    
+        @keyframes buttonGlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+         .continue-shopping:hover::before {
+            left: 100%;
+        }
+    
+        .add-to-cart:hover {
+            _background-color: #0056b3;
+        }
+    
+        .continue-shopping:hover {
+            _background-color: #e9ecef;
+        }
+    
+        .continue-shopping .bi-arrow-left {
+            transition: transform 0.3s ease;
+        }
+    
+        .continue-shopping:hover .bi-arrow-left {
+            animation: arrowMove 1s infinite;
+        }
+    
+        @keyframes arrowMove {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-5px); }
+        }
+        
+        input#quantity {
+            outline: none;
+        }
+
+        .product-offcanvas.offcanvas-bottom {
+            height: auto;
+            max-height: 50vh;
+          }
+        
+          .product-offcanvas .offcanvas-body {
+            padding: 1rem;
+          }
+        
+          .product-offcanvas .image-container {
+            max-width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        
+          .product-offcanvas .product-image {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+          }
+        
+          .product-offcanvas .quantity-control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        
+          .product-offcanvas .quantity-control input {
+            width: 40px;
+            text-align: center;
+          }
+        
+          .product-offcanvas .btn-sm {
+            font-size: 0.8rem;
+          }
+          .product-offcanvas.offcanvas-bottom.custom-width {
+            width: 800px;
+            max-width: 100%;
+            height: auto;
+        
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%) translateY(100%);
+            transition: transform 0.3s ease-in-out;
+          }
+        
+
+          .product-offcanvas.offcanvas-bottom.custom-width {
+            height: auto;
+
+          }
+        
+          .product-offcanvas.offcanvas-bottom.custom-width.show {
+            transform: translateX(-50%) translateY(0);
+          }
+        
+          .product-offcanvas .offcanvas-body {
+            padding: 1rem;
+            overflow-y: auto;
+          }
+        
+        
+
+          .product-offcanvas .row {
+            flex-wrap: nowrap; 
+          }
+        
+          .product-offcanvas .col-3 {
+            flex: 0 0 25%; 
+            max-width: 25%;
+          }
+        
+
+          .product-offcanvas .image-container {
+            height: 150px; 
+          }
+        
+          .product-offcanvas .product-image {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+          }
+        
+
+          @media (max-width: 767px) {
+            .product-offcanvas.offcanvas-bottom.custom-width {
+                width: 100%;
+                left: 0;
+                right: 0;
+                transform: translateY(100%);
+              }
+          
+              .product-offcanvas.offcanvas-bottom.custom-width.show {
+                transform: translateY(0);
+              }
+        
+            .product-offcanvas .row {
+              flex-wrap: wrap;
+            }
+        
+            .product-offcanvas .col-3 {
+              flex: 0 0 50%;
+              max-width: 50%;
+            }
+          }
+
+          .product-offcanvas .product-title.truncate {
+   
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%; 
+          }
+          .dropdown-menu {
+            text-align: right;
+            right: 0;
+            left: auto;
+          }
+          
+          .dropdown-toggle::after {
+            display: none;
+          }
+          
+          .dropdown-item:hover {
+            background-color: #f8f9fa;
+          }
+     
+
+          .slide-left-offcanvas.offcanvas-start, 
+          .slide-left-offcanvas.offcanvas-end  {
+            width: 320px;
+            height: 100vh !important; 
+            top: 20vh; 
+            border-radius: 0 20px 20px 0;
+          }
+          .slide-left-offcanvas.offcanvas-end  {
+            border-radius: 20px 0 0 20px;
+          }
+          .slide-left-offcanvas .offcanvas-header,
+          .slide-left-offcanvas .offcanvas-body {
+            padding: 1rem;
+          }
+        
+          .slide-left-offcanvas .offcanvas-body {
+            overflow-y: auto; 
+          }
+        
+          .slide-left-offcanvas .image-container {
+            max-width: 150px; 
+            margin: 0 auto;
+          }
+        
+          .slide-left-offcanvas .product-image {
+            width: 100%;
+            height: auto;
+          }
+        
+          .slide-left-offcanvas .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          }
+        
+          .slide-left-offcanvas .quantity-control button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            font-size: 1.2rem;
+          }
+        
+          .slide-left-offcanvas .quantity-control input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 1.2rem;
+          }
+          .slide-left-offcanvas {
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+          }
+          @media (max-height: 500px) {
+            .slide-left-offcanvas.offcanvas-start,
+            .slide-left-offcanvas.offcanvas-end  {
+              height: 90vh !important;
+              top: 5vh;
+            }
+          }
+
+
+          .unique-modal-class .modal-content {
+            max-width: none  !important;
+            width: auto !important
+        }
+        
+        .unique-modal-class .product-item {
+            max-width: 150px  !important;
+        }
+        
+    </style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function updateButtonState() {
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var decrementBtn = document.getElementById('decrementBtn');
+            decrementBtn.disabled = (quantity <= 1);
+        }
+    
+        function incrementQuantity() {
+            var input = document.getElementById('quantity');
+            input.value = parseInt(input.value) + 1;
+            updateButtonState();
+        }
+    
+        function decrementQuantity() {
+            var input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+            updateButtonState();
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var offcanvasElement = document.getElementById('offcanvasBottom');
+            var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    
+            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+                updateButtonState();
+            });
+
+
+            updateButtonState(); 
+    
+            const continueShoppingBtn = document.querySelector('.continue-shopping');
+    
+            continueShoppingBtn.addEventListener('mouseenter', function() {
+                const arrow = this.querySelector('.bi-arrow-left');
+                arrow.style.animation = 'arrowMove 1s infinite';
+            });
+    
+            continueShoppingBtn.addEventListener('mouseleave', function() {
+                const arrow = this.querySelector('.bi-arrow-left');
+                arrow.style.animation = 'none';
+            });
+        });
+
+        function updateButtonStateSlideLeft() {
+            var quantity = parseInt(document.getElementById('quantitySlideLeft').value);
+            var decrementBtn = document.getElementById('decrementBtnSlideLeft');
+            decrementBtn.disabled = (quantity <= 1);
+          }
+        
+          function incrementQuantitySlideLeft() {
+            var input = document.getElementById('quantitySlideLeft');
+            input.value = parseInt(input.value) + 1;
+            updateButtonStateSlideLeft();
+          }
+        
+          function decrementQuantitySlideLeft() {
+            var input = document.getElementById('quantitySlideLeft');
+            if (parseInt(input.value) > 1) {
+              input.value = parseInt(input.value) - 1;
+            }
+            updateButtonStateSlideLeft();
+          }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var offcanvasElement = document.getElementById('modalDesktopCrossOneProductSlideLeft');
+            var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+        
+            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+              updateButtonStateSlideLeft();
+            });
+
+
+            var offcanvas = document.querySelector('.product-offcanvas');
+            offcanvas.addEventListener('show.bs.offcanvas', function () {
+              setTimeout(() => {
+                this.classList.add('show');
+              }, 0);
+            });
+            offcanvas.addEventListener('hide.bs.offcanvas', function () {
+              this.classList.remove('show');
+            });
+
+            var productTitles = document.querySelectorAll('.product-title.truncate');
+            productTitles.forEach(function(title) {
+              title.setAttribute('title', title.textContent);
+            });
+
+            //
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+              return new bootstrap.Dropdown(dropdownToggleEl)
+            })
+          });
+
+          
+    </script>
+
+    <script src="tables.js"></script>
+</body>
+</html>

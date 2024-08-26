@@ -1,0 +1,11 @@
+{
+    "app-scripts": {
+      "url": "https://plugin.wabutton.com",
+      "add_to_cart_event": "campaign(2, 'add-remove-cart', productCart)",
+      "start_checkout_event": "alert(\"start checkout\")",
+      "purchase_event": "campaign(6, 'purchase', transactionItems)",
+      "remove_from_cart_event": "campaign(3, 'add-remove-cart', productCart)",
+      "product_details_event": "let checkInterval = setInterval(function() { if (document.readyState == \"complete\") { window.campaign(5, 'product-view', productViewd); clearInterval(checkInterval); } }, 1000);"
+    }
+  }
+  
